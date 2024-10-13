@@ -12,7 +12,6 @@ export class Product {
   }
 
   public purchase(quantity: number): void {
-    if (quantity > this.stock) throw new Error('Insufficient stock');
     this.stock -= quantity;
   }
 

@@ -4,10 +4,12 @@ import { CreateProductCommandHandler } from './services/create-product.command-h
 import { InfrastructureModule } from 'src/infrastructure/infrastructure.module';
 import { GetProductQueryHandler } from './services/get-product.query-handler';
 import { DeleteProductCommandHandler } from './services/delete-product.command-handler';
+import { PurchaseProductCommandHandler } from './services/purchase-product.command-handler';
 
 const CommandHandlers = [
   CreateProductCommandHandler,
   DeleteProductCommandHandler,
+  PurchaseProductCommandHandler,
 ];
 const QueryHandlers = [GetProductQueryHandler];
 

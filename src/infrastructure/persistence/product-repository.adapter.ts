@@ -25,6 +25,17 @@ export class ProductRepositoryAdapter implements ProductRepository {
     await this.productRepository.delete({ id });
   }
 
+  async purchase(id: number, quantity: number): Promise<Product | null> {
+    const productEntity = await this.productRepository.findOneBy({ id });
+    if (!productEntity) return null;
+    if (productEntity.stock < quantity) return null;
+
+    productEntity.stock -= quantity;
+    const updatedProduct = await this.productRepository.save(productEntity);
+
+    return this.toDomainEntity(updatedProduct);
+  }
+
   private toDatabaseEntity(product: Product): ProductEntity {
     const productEntity = new ProductEntity();
     productEntity.id = product.getId();
