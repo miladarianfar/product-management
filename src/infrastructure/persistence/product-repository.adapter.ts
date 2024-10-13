@@ -10,9 +10,10 @@ export class ProductRepositoryAdapter implements ProductRepository {
     private readonly productRepository: Repository<ProductEntity>,
   ) {}
 
-  async save(product: Product): Promise<void> {
+  async save(product: Product): Promise<Product> {
     const productEntity = this.toDatabaseEntity(product);
-    await this.productRepository.save(productEntity);
+    const newProduct = await this.productRepository.save(productEntity);
+    return this.toDomainEntity(newProduct);
   }
 
   async findById(id: number): Promise<Product | null> {
