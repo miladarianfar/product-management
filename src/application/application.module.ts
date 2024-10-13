@@ -2,9 +2,10 @@ import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
 import { CreateProductCommandHandler } from './services/create-product.command-handler';
 import { InfrastructureModule } from 'src/infrastructure/infrastructure.module';
+import { GetProductQueryHandler } from './services/get-product.query-handler';
 
 const CommandHandlers = [CreateProductCommandHandler];
-const QueryHandlers = [];
+const QueryHandlers = [GetProductQueryHandler];
 
 @Module({
   imports: [CqrsModule, InfrastructureModule],
