@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ProductEntity } from './database/product.entity';
+import { ProductRepositoryAdapter } from './persistence/product-repository.adapter';
 
 @Module({
   imports: [
@@ -25,7 +26,7 @@ import { ProductEntity } from './database/product.entity';
     }),
     TypeOrmModule.forFeature([ProductEntity]),
   ],
-  providers: [],
-  exports: [TypeOrmModule],
+  providers: [ProductRepositoryAdapter],
+  exports: [ProductRepositoryAdapter, TypeOrmModule],
 })
 export class InfrastructureModule {}
