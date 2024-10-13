@@ -1,5 +1,5 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { PurchaseProductCommand } from '../commands/purchase-product.command';
+import { PurchaseProductCommand } from 'src/application/commands/purchase-product.command';
 import { ProductRepositoryAdapter } from 'src/infrastructure/persistence/product-repository.adapter';
 import { Product } from 'src/domain/entities/product.entity';
 import { NotFoundException } from '@nestjs/common';

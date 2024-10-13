@@ -10,10 +10,10 @@ import {
 } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { CreateProductCommand } from 'src/application/commands/create-product.command';
-import { CreateProductDto } from './dto/create-product.dto';
+import { CreateProductDto } from 'src/interfaces/http/dto/create-product.dto';
 import { GetProductQuery } from 'src/application/queries/get-product.query';
 import { DeleteProductCommand } from 'src/application/commands/delete-product.command';
-import { PurchaseProductDto } from './dto/purchase-product.dto';
+import { PurchaseProductDto } from 'src/interfaces/http/dto/purchase-product.dto';
 import { PurchaseProductCommand } from 'src/application/commands/purchase-product.command';
 
 @Controller('product')
